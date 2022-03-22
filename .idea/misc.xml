@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/HP/Documents/StudiIndependen_Android/chapter3/NavigationApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/HP/Documents/StudiIndependen_Android/chapter3/NavigationApp/app/src/main/res/layout/fragment_first.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/HP/Documents/StudiIndependen_Android/chapter3/NavigationApp/app/src/main/res/layout/fragment_second.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/HP/Documents/StudiIndependen_Android/chapter3/NavigationApp/app/src/main/res/layout/fragment_third.xml" value="0.14130434782608695" />
       </map>
     </option>
   </component>
