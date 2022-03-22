@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/firstFragment2">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/new_nav_graph"
+    app:startDestination="@id/firstFragment">
 
     <fragment
-        android:id="@+id/firstFragment2"
+        android:id="@+id/firstFragment"
         android:name="id.hikmah.binar.navigationapp.FirstFragment"
-        android:label="fragment_first"
-        tools:layout="@layout/fragment_first" >
+        android:label="FirstFragment" >
         <action
-            android:id="@+id/action_firstFragment2_to_secondFragment2"
+            android:id="@+id/action_firstFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
         android:name="id.hikmah.binar.navigationapp.SecondFragment"
-        android:label="fragment_second"
-        tools:layout="@layout/fragment_second" >
+        android:label="SecondFragment" >
         <action
             android:id="@+id/action_secondFragment_to_thirdFragment"
             app:destination="@id/thirdFragment" />
@@ -26,6 +23,5 @@
     <fragment
         android:id="@+id/thirdFragment"
         android:name="id.hikmah.binar.navigationapp.ThirdFragment"
-        android:label="fragment_third"
-        tools:layout="@layout/fragment_third" />
+        android:label="ThirdFragment" />
 </navigation>
