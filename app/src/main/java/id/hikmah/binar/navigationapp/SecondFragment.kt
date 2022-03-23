@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import id.hikmah.binar.navigationapp.databinding.FragmentSecondBinding
 
 class SecondFragment : Fragment() {
@@ -28,6 +29,20 @@ class SecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val data = arguments?.getString("extra_name")
+        binding.tvNama.text = data
+        binding.btnToFragmentKetiga.setOnClickListener{
+            val name = binding.etName.text.toString()
+            caraKedua(name, it)
+        }
     }
-
+    private fun caraPertama(valueFromEditText: String, it: View){
+        val bundle = Bundle()
+        bundle.putString("extra_name", valueFromEditText)
+        it.findNavController().navigate(R.id.action_secondFragment_to_thirdFragment)
+    }
+    private fun  caraKedua(valueFromEditText: String, it: View) {
+        val action = SecondFragmentDirections.actionSecondFragmentToThirdFragment(valueFromEditText)
+        it.findNavController().navigate(action)
+    }
 }

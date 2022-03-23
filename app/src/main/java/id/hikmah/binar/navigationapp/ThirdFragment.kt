@@ -28,6 +28,8 @@ class ThirdFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val coba = ThirdFragmentArgs.fromBundle(arguments as Bundle).name
+        binding.tvName.text = coba
     }
 
 }

@@ -31,8 +31,14 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnFragmentKedua.setOnClickListener{
-            it.findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
+            val bundle = Bundle()
+            bundle.putString("extra_name", "ini data dari halaman pertama")
+            it.findNavController().navigate(R.id.action_firstFragment_to_secondFragment, bundle) //jangan lupa kasih  tambahan , bundle
         }
+    }
+
+    companion object {
+        const val EXTRA_NAME = "extra_name"
     }
 
 }
