@@ -32,7 +32,8 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnFragmentKedua.setOnClickListener{
             val bundle = Bundle()
-            bundle.putString("extra_name", "ini data dari halaman pertama")
+            bundle.putString(EXTRA_NAME, "ini data dari halaman pertama")
+
             it.findNavController().navigate(R.id.action_firstFragment_to_secondFragment, bundle) //jangan lupa kasih  tambahan , bundle
         }
     }

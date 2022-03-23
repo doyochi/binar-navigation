@@ -29,6 +29,8 @@ class SecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        getData()
+
         val data = arguments?.getString("extra_name")
         binding.tvNama.text = data
         binding.btnToFragmentKetiga.setOnClickListener{
@@ -36,13 +38,19 @@ class SecondFragment : Fragment() {
             caraKedua(name, it)
         }
     }
+    private fun getData(){
+        val data = arguments?.getString(FirstFragment.EXTRA_NAME)
+        binding.tvNama.text = data
+    }
     private fun caraPertama(valueFromEditText: String, it: View){
         val bundle = Bundle()
         bundle.putString("extra_name", valueFromEditText)
-        it.findNavController().navigate(R.id.action_secondFragment_to_thirdFragment)
+        it.findNavController().navigate(R.id.action_secondFragment_to_thirdFragment, bundle)
     }
+
     private fun  caraKedua(valueFromEditText: String, it: View) {
-        val action = SecondFragmentDirections.actionSecondFragmentToThirdFragment(valueFromEditText)
+        val person = Person("nama", 17)
+        val action = SecondFragmentDirections.actionSecondFragmentToThirdFragment(keyName = valueFromEditText, keyPerson = person)
         it.findNavController().navigate(action)
     }
 }

@@ -28,7 +28,22 @@ class ThirdFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val coba = ThirdFragmentArgs.fromBundle(arguments as Bundle).name
+        getDataKedua()
+
+        val coba = ThirdFragmentArgs.fromBundle(arguments as Bundle).keyName
+        binding.tvName.text = coba
+    }
+
+    private fun getData(){
+        val data = arguments?.getString(FirstFragment.EXTRA_NAME)
+        val person = arguments?.getParcelable("key") as Person?
+        binding.tvName.text = data
+    }
+
+    private fun getDataKedua(){
+        val coba = ThirdFragmentArgs.fromBundle(arguments as Bundle).keyName
+        val person = ThirdFragmentArgs.fromBundle(arguments as Bundle).keyPerson
+
         binding.tvName.text = coba
     }
 

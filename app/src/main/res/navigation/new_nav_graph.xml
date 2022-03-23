@@ -25,8 +25,11 @@
         android:name="id.hikmah.binar.navigationapp.ThirdFragment"
         android:label="ThirdFragment" >
         <argument
-            android:name="name"
+            android:name="keyName"
             app:argType="string"
             android:defaultValue="Ini default value" />
+        <argument
+            android:name="keyPerson"
+            app:argType="id.hikmah.binar.navigationapp.Person" />
     </fragment>
 </navigation>
