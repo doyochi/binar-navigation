@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import androidx.navigation.findNavController
 import id.hikmah.binar.navigationapp.databinding.FragmentSecondBinding
 
@@ -37,7 +39,21 @@ class SecondFragment : Fragment() {
             val name = binding.etName.text.toString()
             caraKedua(name, it)
         }
+        binding.btnToFragmentPertama.setOnClickListener{
+            val name = binding.etName.text.toString()
+            sendDataBackToPreviousPage(name, it)
+        }
     }
+
+    private fun sendDataBackToPreviousPage(valueFromEditText: String, it: View) {
+        setFragmentResult("reqKey", bundleOf("key" to valueFromEditText))//bentuk bisa gini
+        //atau gini
+//        val bundle = Bundle()
+//        bundle.putString("key", "ini isi gais")
+//        setFragmentResult("reqKey", bundle)
+        it.findNavController().popBackStack()
+    }
+
     private fun getData(){
         val data = arguments?.getString(FirstFragment.EXTRA_NAME)
         binding.tvNama.text = data

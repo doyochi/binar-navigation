@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.findNavController
 import id.hikmah.binar.navigationapp.databinding.FragmentFirstBinding
 
@@ -12,6 +14,17 @@ class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
     private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?){
+        super.onCreate(savedInstanceState)
+        setFragmentResultListener("reqKey"){ _, bundle ->
+            val result = bundle.getString("key")
+            binding.viewNama2.apply {
+                visibility = View.VISIBLE
+                text = result
+            }
+        }
+    }
 
     override fun onCreateView( //hanya untuk hubungkan layout
         inflater: LayoutInflater, container: ViewGroup?,
